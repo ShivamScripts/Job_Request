@@ -7,7 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JobRequestApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(JobRequestApplication.class, args);
+//		Job job = new Job(1, 20);
+//		System.out.println(job);
 	}
 
 }

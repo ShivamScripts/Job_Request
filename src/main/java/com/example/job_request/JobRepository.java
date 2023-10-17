@@ -9,10 +9,10 @@ public class JobRepository {
     private final List<Job> sortedJobsList = new ArrayList<>();
 
     public void save(Job job) {
-        // Save to HashMap for quick ID based retrieval
+        // Save to HashMap for quick ID based search
         jobMapById.put(job.getJobId(), job);
 
-        // Insert in sorted order in the ArrayList
+        // Insert in sorted order in the ArrayList to get sorted list by job value and keeping time complexity under check
         int pos = binarySearchPosition(sortedJobsList, job);
         sortedJobsList.add(pos, job);
     }
@@ -50,9 +50,11 @@ public class JobRepository {
             } else if (cmp > 0) {
                 high = mid - 1;
             } else {
-                return mid; // exact value found, can insert here
+                // exact value found, can insert here
+                return mid;
             }
         }
-        return low; // position where the value should be inserted
+        // position where the value should be inserted
+        return low;
     }
 }
